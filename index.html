@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaMont Noir — The Threshold</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@200;300&display=swap" rel="stylesheet">
+    <style>
+        :root { --film-noir: #1A1410; --gilded: #C9A050; --aged-ivory: #F0E6C8; }
+
+        /* ── FIXED FONT DECLARATION ── */
+        @font-face {
+            font-family: 'Ogg';
+            src: url('fonnts.com-Ogg_Roman.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--film-noir); color: var(--aged-ivory); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
+
+        /* ── PAGE 01 LAYERS ── */
+        #threshold-lock { position: relative; width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; overflow: hidden; }
+        .texture-velvet { position: absolute; inset: 0; background-image: url('88609.jpg'); background-size: cover; mix-blend-mode: multiply; opacity: 0; z-index: 1; }
+        .chandelier { position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1080px; height: 70vh; background-image: url('88580.jpg'); background-size: cover; mix-blend-mode: screen; opacity: 0; z-index: 3; }
+        .sigil-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 800px; height: 80%; background-image: url('88634.jpg'); background-size: contain; background-repeat: no-repeat; mix-blend-mode: screen; opacity: 0; z-index: 4; filter: grayscale(100%) brightness(200%); }
+
+        /* ── THE TYPOGRAPHY ── */
+        .text-content { position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 10; width: 100%; }
+        h1.wordmark { font-family: 'Ogg', serif; font-weight: 700; font-size: clamp(32px, 8vw, 88px); color: var(--gilded); letter-spacing: 0.25em; text-transform: uppercase; }
+
+        /* ── INTEGRATED NAVE PERSPECTIVE ── */
+        #descent-section { position: relative; width: 100vw; min-height: 100vh; background: var(--film-noir); padding: 120px 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .architectural-bg { 
+            position: absolute; inset: 0; 
+            background-image: url('88631.png'); 
+            background-size: cover; background-position: center; 
+            mix-blend-mode: screen; opacity: 0.4; 
+            filter: sepia(100%) hue-rotate(130deg) saturate(80%); 
+            z-index: 1; 
+        }
+    </style>
+</head>
+<body>
+    <section id="threshold-lock">
+        <div class="texture-velvet" id="velvet"></div>
+        <div class="chandelier" id="chandelier"></div>
+        <div class="sigil-watermark" id="sigil"></div>
+        <div class="text-content">
+            <h1 class="wordmark">LAMONT NOIR</h1>
+        </div>
+    </section>
+
+    <section id="descent-section">
+        <div class="architectural-bg"></div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => { document.getElementById('velvet').style.transition = "opacity 2s"; document.getElementById('velvet').style.opacity = "1"; }, 1000);
+            setTimeout(() => { document.getElementById('chandelier').style.transition = "opacity 3s"; document.getElementById('chandelier').style.opacity = "0.24"; }, 1500);
+            setTimeout(() => { document.getElementById('sigil').style.transition = "opacity 2s"; document.getElementById('sigil').style.opacity = "0.04"; }, 2500);
+        });
+    </script>
+</body>
+</html>
